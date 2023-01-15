@@ -1,8 +1,8 @@
 local client = HTTP
 
-if pcall( require, 'chttp' ) and (CHTTP ~= nil) then
+if util.IsBinaryModuleInstalled( 'chttp' ) and pcall( require, 'chttp' ) and (CHTTP ~= nil) then
 	client = CHTTP
-elseif pcall( require, 'reqwest' ) and (reqwest ~= nil) then
+elseif util.IsBinaryModuleInstalled( 'reqwest' ) and pcall( require, 'reqwest' ) and (reqwest ~= nil) then
 	client = reqwest
 else
 	plib.Warn( 'Couldn\'t load http client, you probably didn\'t download it,\nI highly recommend to install one of these binnary modules.\nchttp: https://github.com/timschumi/gmod-chttp/releases\nreqwest: https://github.com/WilliamVenner/gmsv_reqwest/releases' )
